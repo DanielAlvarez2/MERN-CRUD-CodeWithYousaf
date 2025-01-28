@@ -17,6 +17,12 @@ app.post('/createUser', (req,res)=>{
         .catch(err => res.json(err))
 })
 
+app.get('/', (req,res)=>{
+    UserModel.find({})
+        .then(users=>res.json(users))
+        .catch(err=>res.json(err))
+})
+
 app.listen(2121, ()=>{
     console.log('Express Server is Running on Port 2121!')
 })
