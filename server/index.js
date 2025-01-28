@@ -23,6 +23,21 @@ app.get('/', (req,res)=>{
         .catch(err=>res.json(err))
 })
 
+app.get('/getUser/:id', (req,res)=>{
+    UserModel.findById(req.params.id)
+        .then(user=>res.json(user))
+        .catch(err=>res.json(err))
+})
+
+app.put('/updateUser/:id', (req,res)=>{
+    UserModel.findByIdAndUpdate({_id:req.params.id},
+                                {name:req.body.name,
+                                email:req.body.email,
+                                age:req.body.age})
+        .then(user=>res.json(user))
+        .catch(err=>res.json(err))
+})
+
 app.listen(2121, ()=>{
     console.log('Express Server is Running on Port 2121!')
 })

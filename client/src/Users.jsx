@@ -30,8 +30,8 @@ export default function Users(){
                                     <td>{user.email}</td>
                                     <td>{user.age}</td>
                                     <td>
-                                    <Link to='/update' className='btn btn-success'>Update</Link>
-                                    <button className='btn btn-danger'>Delete</button>
+                                    <Link to={`/update/${user._id}`} className='btn btn-success'>Update</Link>
+                                    <button style={{marginLeft:'10px'}} className='btn btn-danger'>Delete</button>
                                     </td>
                                 </tr>
                             })
