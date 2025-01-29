@@ -14,7 +14,7 @@ export default function Users(){
         axios.delete(`http://localhost:2121/deleteUser/${id}`)
             .then(result=>{
                 console.log(result)
-                window.location.reload()
+                setUsers(prev=>prev.filter(user=>user._id!==result.data._id))
             })
             .catch(err=>console.log(err))
     }
