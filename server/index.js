@@ -38,6 +38,12 @@ app.put('/updateUser/:id', (req,res)=>{
         .catch(err=>res.json(err))
 })
 
+app.delete('/deleteUser/:id', (req,res)=>{
+    UserModel.findByIdAndDelete({_id:req.params.id})
+        .then(user=>res.json(user))
+        .catch(err=>res.json(err))
+})
+
 app.listen(2121, ()=>{
     console.log('Express Server is Running on Port 2121!')
 })
